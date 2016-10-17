@@ -7,7 +7,7 @@ var fs = require('fs')
   , path = require('path')
   , spawn = require('cross-spawn')
   , hook = path.join(__dirname, 'hook')
-  , root = path.resolve(__dirname, '..', '..')
+  , root = path.resolve(__dirname, '..', '../..')
   , exists = fs.existsSync || path.existsSync;
 
 //
