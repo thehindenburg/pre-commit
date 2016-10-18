@@ -4,7 +4,7 @@
 // Compatibility with older node.js as path.exists got moved to `fs`.
 //
 var fs = require('fs')
-  , path = require(path.join(__dirname, '..', 'path'))
+  , path = require('path')
   , spawn = require(path.join(__dirname, '..', 'cross-spawn'))
   , hook = path.join(__dirname, 'hook')
   , root = path.resolve(__dirname, '..', '../..')
