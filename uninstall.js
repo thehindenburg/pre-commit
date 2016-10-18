@@ -3,7 +3,7 @@
 var fs = require('fs')
   , path = require('path')
   , exists = fs.existsSync || path.existsSync
-  , precommit = path.resolve(__dirname, '../..', '.git', 'hooks', 'pre-commit');
+  , precommit = path.resolve(__dirname, '../../..', '.git', 'hooks', 'pre-commit');
 
 //
 // Bail out if we don't have pre-commit file, it might be removed manually.

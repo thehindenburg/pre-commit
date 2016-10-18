@@ -1,8 +1,8 @@
 'use strict';
 
-var spawn = require('cross-spawn')
-  , which = require('which')
-  , path = require('path')
+var path = require('path'), 
+    spawn = require(path.join(__dirname, '..', 'cross-spawn'))
+  , which = require(path.join(__dirname, '..', 'which'))
   , util = require('util')
   , tty = require('tty');
 
