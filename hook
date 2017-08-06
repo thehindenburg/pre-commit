@@ -37,6 +37,14 @@ elif [[ -x "$LOCAL" ]]; then
   BINARY="$LOCAL"
 fi
 
+if [ -e precommit-config.sh ]; then
+  source precommit-config.sh
+else 
+  echo "There needs to be a precommit-config.sh on the root of your git project with a variable of CONFIG_PATH"
+fi
+
+cd $CONFIG_PATH
+
 #
 # Add --dry-run cli flag support so we can execute this hook without side affects
 # and see if it works in the current environment
@@ -45,6 +53,8 @@ if [[ $* == *--dry-run* ]]; then
   if [[ -z "$BINARY" ]]; then
     exit 1
   fi
+elif ! [ -e package.json ]; then
+  echo "no package.json found at the path specified"
 else
-  "$BINARY" "$("$BINARY" -e "console.log(require.resolve('pre-commit'))")"
+  "$BINARY" "$("$BINARY" -e "console.log(require.resolve('pre-commit-root'))")"
 fi

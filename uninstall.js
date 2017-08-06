@@ -2,8 +2,12 @@
 
 var fs = require('fs')
   , path = require('path')
+  , findGitRoot = require(__dirname + '/root')
   , exists = fs.existsSync || path.existsSync
-  , precommit = path.resolve(__dirname, '../../..', '.git', 'hooks', 'pre-commit');
+  , root = findGitRoot();
+
+
+  var precommit = path.resolve(root, '.git', 'hooks', 'pre-commit');
 
 //
 // Bail out if we don't have pre-commit file, it might be removed manually.

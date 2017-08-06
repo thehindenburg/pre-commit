@@ -5,10 +5,10 @@
 //
 var fs = require('fs')
   , path = require('path')
-  , spawn = require(path.join(__dirname, '..', 'cross-spawn'))
+  , findGitRoot = require(__dirname + '/root')
   , hook = path.join(__dirname, 'hook')
-  , root = path.resolve(__dirname, '..', '../..')
   , exists = fs.existsSync || path.existsSync;
+var root = findGitRoot();
 
 //
 // Gather the location of the possible hidden .git directory, the hooks

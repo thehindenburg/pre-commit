@@ -1,11 +1,22 @@
-# pre-commit
+# pre-commit-root
 
-[![Version npm][version]](http://browsenpm.org/package/pre-commit)[![Build Status][build]](https://travis-ci.org/observing/pre-commit)[![Dependencies][david]](https://david-dm.org/observing/pre-commit)[![Coverage Status][cover]](https://coveralls.io/r/observing/pre-commit?branch=master)
+this is a forked version of pre-commit (http://browsenpm.org/package/pre-commit) with the ability for it to work if your package.json is in a subfolder of your git repository.
 
-[version]: http://img.shields.io/npm/v/pre-commit.svg?style=flat-square
-[build]: http://img.shields.io/travis/observing/pre-commit/master.svg?style=flat-square
-[david]: https://img.shields.io/david/observing/pre-commit.svg?style=flat-square
-[cover]: http://img.shields.io/coveralls/observing/pre-commit/master.svg?style=flat-square
+##configure
+
+on the root of your git repo you need to have a file called `precommit-config.sh` that should export one variable as the path to your `package.json`
+
+```
+#!/bin/bash
+
+export CONFIG_PATH="frontend/"
+```
+
+other than that it works like pre-commit
+
+everything below is from main fork
+
+##pre-commit
 
 **pre-commit** is a pre-commit hook installer for `git`. It will ensure that
 your `npm test` (or other specified scripts) passes before you can commit your
@@ -21,7 +32,7 @@ It's advised to install the **pre-commit** module as a `devDependencies` in your
 module simply run:
 
 ```
-npm install --save-dev pre-commit
+npm install --save-dev pre-commit-root
 ```
 
 To install it as `devDependency`. When this module is installed it will override
